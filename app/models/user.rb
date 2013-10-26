@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'Username'
-  attr_acessor :login
+  attr_accessor :login
   attr_accessible :login
   
   def self.find_first_by_auth_conditions(warden_conditions)
