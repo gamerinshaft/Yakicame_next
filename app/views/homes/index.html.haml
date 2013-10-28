@@ -3,11 +3,15 @@
     %h1
       Yakicame
   .text
-    %strong つぶヤキカメらの略です。instagramとtwitterの中間的存在です。
+    %strong.lead つぶヤキカメらの略です。instagramとtwitterの中間的存在です。
   .links
     .row-fluid
       .span6
-        = link_to 'sign_in', new_user_session_path
-      .span6  
-        = link_to 'sign_up', new_user_registration_path
+        .btn.btn-inverse
+          .link
+            = link_to 'sign_in', new_user_session_path
+      .span6
+        .btn.btn-inverse
+          .link  
+            = link_to 'sign_up', new_user_registration_path
         
