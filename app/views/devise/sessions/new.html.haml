@@ -1,7 +1,7 @@
 #sign_in 
-  .sign_box
-    .title
-      %h2 Sign in
+  .title
+    %h2 Sign in
+  .form
     = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
       .login
         = f.label :login
@@ -16,5 +16,5 @@
           = f.check_box :remember_me
           = f.label :remember_me
       .submit
-        = f.submit "Sign in"
-    = render "devise/shared/links"
+      = f.submit "Sign in"
+  = render "devise/shared/links"
