@@ -2,19 +2,16 @@
   .title
     %h1
       Yakicame
-  .text
-    %strong つぶヤキカメらの略です。instagramとtwitterの中間的存在です。
-
-  .links
+   
     .row-fluid
-      .span2
-      .span4
+      .span1
+      .span3
         .sign_in
           .link
             = link_to "sign in", user_session_path, class: "link1"
-      .span1
-      .span4
+      
+      .span3
         .sign_up
           .link  
             = link_to "sign up", new_user_registration_path, class: "link2" 
-      .span1
+      .span5
