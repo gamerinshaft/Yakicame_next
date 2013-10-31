@@ -1,4 +1,8 @@
 Yaki::Application.routes.draw do
+  get "users/index"
+
+  get "users/show"
+
   get "homes/index"
 
   devise_for :users
