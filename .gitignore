@@ -16,3 +16,6 @@
 
 # Ignore the auto making files  created by Emacs
 .#*
+
+# Ignore the pictuers uploaded
+/public/uploads
