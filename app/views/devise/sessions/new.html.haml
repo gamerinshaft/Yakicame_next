@@ -5,29 +5,16 @@
   .sign_box.content.container
     .form.content.container
       = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-
         .login_box
-         
           .login
             = f.label :login, class: "login_text"
-          
-          
-          
             = f.text_field :login, :autofocus => true, class: "login_form"
-          
         .password_box
-          
           .password
-            
             = f.label :password, class: "password_text"
-          
-          
-
-          
             = f.password_field :password, class: "password_form"
         .span3  
-          
         .submit.span3
-          = f.submit "Sign in"
+          = f.submit "Sign in", class: "btn-primary"
            
 
