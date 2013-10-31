@@ -11,12 +11,10 @@
       .span4
         .sign_in
           .link
-            %a 
-              = link_to "sign in", user_session_path, :style=>"color:black; font-size:70px; font-weight:bold; box-shadow:0px 0px 30px green; border:1px solid white; border-radius: 50px; padding: 5px 80px; text-decoration: none; }"
+            = link_to "sign in", user_session_path, class: "link1"
       .span1
       .span4
         .sign_up
           .link  
-            %a
-              = link_to "sign up", new_user_registration_path, :style=>"color:black; font-size:70px; font-weight:bold; box-shadow:0px 0px 30px blue; border:1px solid white; border-radius: 50px; padding: 5px 80px; text-decoration: none;"
+            = link_to "sign up", new_user_registration_path, class: "link2" 
       .span1

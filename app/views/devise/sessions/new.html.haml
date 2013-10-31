@@ -2,24 +2,32 @@
   .title
     %h2 Sign in
   
-  .sign_box
+  .sign_box.content.container
     .form.content.container
       = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
 
-        .login
-          = f.label :login, class: "login_text"
-          %br/
-          = f.text_field :login, :autofocus => true, class: "login_form"
-        .password
-          = f.label :password, class: "password_text"
-          %br/
-          .password_box
+        .login_box
+         
+          .login
+            = f.label :login, class: "login_text"
+          
+          
+          
+            = f.text_field :login, :autofocus => true, class: "login_form"
+          
+        .password_box
+          
+          .password
+            
+            = f.label :password, class: "password_text"
+          
+          
+
+          
             = f.password_field :password, class: "password_form"
-        - if devise_mapping.rememberable?
-          .remember
-            = f.check_box :remember_me
-            = f.label :remember_me
-        .submit.btn.btn-primary
+        .span3  
+          
+        .submit.span3
           = f.submit "Sign in"
-  
-  = render "devise/shared/links"
+           
+
