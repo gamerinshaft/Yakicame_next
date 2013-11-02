@@ -1,14 +1,9 @@
-%table
-	%tr
-		%th User
-		%th Content
-		%td
-		%td
+-@tweets.each do |tweet|
+	= tweet.user.username
+	= tweet.content
+	= link_to 'show', tweet
+	= link_to 'edit', edit_tweet_path(tweet)
+	= link_to 'destroy', tweet, :method => :delete, :data => { :confirm => "Are you ok? "}
+	%br
 
-	-@tweets.each do |tweet|
-		%tr
-			%td= tweet.content
-			%td= link_to 'show', tweet
-			%td= link_to 'edit', edit_tweet_path(tweet)
-			%td= link_to 'destroy', tweet, :method => :delete, :data => { :confirm => "Are you ok? "}
 

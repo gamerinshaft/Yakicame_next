@@ -4,6 +4,7 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.all
     @tweet = Tweet.new
+    
    
     respond_to do |format|
       format.html # index.html.erb
