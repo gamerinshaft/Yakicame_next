@@ -1,22 +1,7 @@
-%h1 Listing tweets
-= image_tag current_user.image_url(:thumb).to_s 
+#tweet_index
+  .span9.tweet
+    = render "tweet"
+  .span3.form
+    = render "form"
 
 
-%table
-  %tr
-    %th User
-    %th Content
-    %th
-    %th
-    %th
-
-  - @tweets.each do |tweet|
-    %tr
-     
-      %td= tweet.content
-      %td= link_to 'Show', tweet
-      %td= link_to 'Edit', edit_tweet_path(tweet)
-      %td= link_to 'Destroy', tweet, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-
-= link_to 'edit', edit_user_registration_path
