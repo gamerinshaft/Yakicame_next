@@ -7,7 +7,7 @@ Yaki::Application.routes.draw do
 
   devise_for :users
   resources :users, only: [:index, :show]
-  resources :tweets
+  resources :tweets, except: [:show]
 
   unauthenticated do
     as :user do
