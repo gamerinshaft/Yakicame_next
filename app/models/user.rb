@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   attr_accessor :login
   attr_accessible :login
   
-  
+  has_many :tweets
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
