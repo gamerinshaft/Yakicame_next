@@ -1,20 +1,29 @@
-= image_tag current_user.image_url(:thumb).to_s 
-= form_for @tweet do |f|
-  - if @tweet.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@tweet.errors.count, "error")} prohibited this tweet from being saved:"
-      %ul
-        - @tweet.errors.full_messages.each do |msg|
-          %li= msg
+#form
+  .profile
+    = image_tag current_user.image_url(:thumb).to_s , class: "cuser_image"
+     
+    .cusername 
+      = current_user.username
+  
+      .user_at
+        = "@" + current_user.username
+  .form_box
+    = form_for @tweet do |f|
+      - if @tweet.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@tweet.errors.count, "error")} prohibited this tweet from being saved:"
+          %ul
+            - @tweet.errors.full_messages.each do |msg|
+              %li= msg
+      %strong コメント
+      .field
+        
+        = f.file_field :image
 
-  .field
-    = f.label :image
-    = f.file_field :image
-
-  .field
-    = f.label :content
-    = f.text_field :content
+      .field
+        
+        = f.text_field :content
 
 
-  .actions
-    = f.submit '投稿'
+      .actions
+        = f.submit '投稿'
