@@ -3,7 +3,7 @@ class TweetsController < ApplicationController
   # GET /tweets.json
   def index
     @tweets = Tweet.all
-
+    @tweet = Tweet.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tweets }
@@ -23,14 +23,14 @@ class TweetsController < ApplicationController
 
   # GET /tweets/new
   # GET /tweets/new.json
-  def new
-    @tweet = Tweet.new
+  #def new
+  #  @tweet = Tweet.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @tweet }
-    end
-  end
+  #  respond_to do |format|
+  #    format.html # new.html.erb
+  #    format.json { render json: @tweet }
+  #  end
+  #end
 
   # GET /tweets/1/edit
   def edit
@@ -40,11 +40,11 @@ class TweetsController < ApplicationController
   # POST /tweets
   # POST /tweets.json
   def create
-    @tweet = current_user.tweet.build(params[:tweet])
+    @tweet = current_user.tweets.build(params[:tweet])
 
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }
+        format.html { redirect_to tweets_path, notice: 'Tweet was successfully created.' }
         format.json { render json: @tweet, status: :created, location: @tweet }
       else
         format.html { render action: "new" }
