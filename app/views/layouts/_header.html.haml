@@ -4,7 +4,10 @@
 			%a.brand{href: "http://localhost:3000"} YakiCame
 			%ul.nav
 				%li.active
-					%a{href: "#"} Home
+					- if user_signed_in?
+				
+						= link_to content_tag(:i, nil, class: "icon-share"), destroy_user_session_path, method: :delete
+				
 				%li
 					%a{href: "#"} Link
 			
