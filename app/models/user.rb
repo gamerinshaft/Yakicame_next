@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :bio, :image
   
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'Username'
@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   attr_accessible :login
   
   has_many :tweets
+  mount_uploader :image, ImageUploader
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
