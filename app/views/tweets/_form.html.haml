@@ -1,8 +1,9 @@
 #form
   .profile
     = image_tag current_user.image_url(:thumb).to_s , class: "cuser_image"
-    .cusername
-      = "@" + current_user.username
+    .cuser_box
+      .cusername
+        = "@" + current_user.username
       .user_at
         = link_to "プロフィールを見る", users_path
   .list
@@ -26,8 +27,8 @@
             - @tweet.errors.full_messages.each do |msg|
               %li= msg
      
+      
       .field
-        
         = f.file_field :image,class: "image"
 
       .field
