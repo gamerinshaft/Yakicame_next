@@ -7,10 +7,11 @@
 
 
 	#tweet
+
 		:border 1px solid #ccc
 		:margin-bottom 150px
 		:border-radius 10px
-		:width 90%
+		:width 92%
 		h4
 			:text-align center
 			:font-size 20px
@@ -19,26 +20,32 @@
 			.user_box
 				:border-bottom 1px solid #ccc
 				.user_profile_box
-					:border 2px solid blue
-					
+					:margin-top 10px
+					:border-top-right-radius 15px
+					:border-top-left-radius 15px
+
+					:padding 5px 0px
+					:background-color #111
 					.user_image
 						:folat left
 						:border 1px solid yellow
-						
+						:margin-left 20px
 						:height 80px
 						:width 80px
 						:border-radius 15px
 					.names
-						:border 1px solid pink
+						
 						:float right
 						:width 75%
 						:margin-top 20px
 						:margin-left 20px
 						:clear both
 						strong
+							:color white
 							:float left
 							:font-size 50px
 						p
+							:color orange
 							:float left
 							:margin-left 40px
 							:font-size 30px
@@ -58,18 +65,31 @@
 							:border 1px solid brown
 							.show
 								:float left
+								:margin 0px 20px
 							.edit
 								:float left 
+								:margin 0px 20px
 							.destroy
 								:float left
+								:margin 0px 20px
+
+				.comment_box
+					:padding 10px 40px
+					.comment
+						:font-size 22px
+						:margin  10px 5px
+						:padding 5px
+					.image
 
 	#form
+		:background-color black
+
 		:width 30%
 		:position fixed
 		:border 1px solid #ccc
 		:border-radius 15px
 		.profile
-
+			:clear both
 			:padding-bottom 10px
 			:height 70px
 			:width 90%
@@ -78,18 +98,23 @@
 			.cuser_image
 				:float left
 				:margin 10px
-				:border 1px red 
+				:border 1px solid red 
 				:height 80px
 				:width 80px
+				:border-radius 15px
 			.cuser_box
 				:float left
 				.cusername
-					:margin-right 15px
-					:text-shadow 1px 1px 5px green
+					:color white
+					
+					:text-shadow 2px 2px 40px red
 					:text-align center
 					:font-size 38px
 					:margin-top 20px
-					:padding-bottom 5px 
+					:padding-bottom 5px
+					
+
+
 					
 				.user_at
 					:color #ccc
@@ -110,6 +135,11 @@
 				:background-color #eee
 				:border-left 1px solid #ccc
 		.form_box
+			:background-color white
+			:height 100%
+			:border 0px solid red
+			:border-bottom-right-radius 15px
+			:border-bottom-left-radius 15px
 			:clear both
 			.field
 				:margin 0px 20px

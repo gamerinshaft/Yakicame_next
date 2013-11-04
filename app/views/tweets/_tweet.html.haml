@@ -26,9 +26,11 @@
 							.destroy
 								= link_to 'destroy', tweet, :method => :delete, :data => { :confirm => "Are you ok? "}
 
-		
-				= tweet.content
-				%br
-				= image_tag tweet.image_url.to_s if tweet.image?
+				.comment_box
+					.comment
+						%strong= tweet.content
+						%br
+					.image	
+						= image_tag tweet.image_url.to_s if tweet.image?
 				
 
