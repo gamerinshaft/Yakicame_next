@@ -4,7 +4,7 @@
     .cuser_box
       .cusername
         = "@" + current_user.username
-      
+
       .user_at
         = link_to "プロフィールを見る", user_path(current_user)
   .list
@@ -15,7 +15,7 @@
         %th.span3 フォロー
         %th.span3 フォロワー
       %tr
-        %td　23
+        %td= current_user.tweets.count
         %td　23
         %td　23
         %td　23
@@ -23,7 +23,7 @@
     = form_for @tweet do |f|
       - if @tweet.errors.any?
         #error_explanation
-          %h2= "#{pluralize(@tweet.errors.count, "error")} prohibited this tweet from being saved:"
+          %h4= "#{pluralize(@tweet.errors.count, "error")} prohibited this tweet from being saved:"
           %ul
             - @tweet.errors.full_messages.each do |msg|
               %li= msg
