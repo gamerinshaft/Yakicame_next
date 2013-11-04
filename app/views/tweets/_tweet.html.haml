@@ -5,24 +5,26 @@
 
 		-@tweets.each do |tweet|
 			.user_box
+
 				.user_profile_box
+
 					= image_tag tweet.user.image_url(:thumb).to_s, class: "user_image"
 
-					.username
-						= tweet.user.username	
+					.names
+						.username
+							%strong= tweet.user.username
 						
-						.usernamea
-							= '@' + tweet.user.username
+							%p= '@' + tweet.user.username
 
 
-					.fa_box
+						.fa_box
 									
-						.show
-							= link_to 'show', tweet
-						.edit
-							= link_to 'edit', edit_tweet_path(tweet)
-						.destroy
-							= link_to 'destroy', tweet, :method => :delete, :data => { :confirm => "Are you ok? "}
+							.show
+								= link_to 'show', tweet
+							.edit
+								= link_to 'edit', edit_tweet_path(tweet)
+							.destroy
+								= link_to 'destroy', tweet, :method => :delete, :data => { :confirm => "Are you ok? "}
 
 		
 				= tweet.content
