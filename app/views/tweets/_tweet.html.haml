@@ -38,12 +38,21 @@
 							.destroy
 								-if tweet.user == current_user
 									= link_to '削除', tweet, :method => :delete, :data => { :confirm => "Are you ok? "}
+				-if tweet.favorited? current_user				
+					.comment_box1
 
-				.comment_box
-					.comment
-						%strong= tweet.content
-						%br
-					.image	
-						= image_tag tweet.image_url.to_s if tweet.image?
-				
+						.comment
+							%strong= tweet.content
+							%br
+						.image	
+							= image_tag tweet.image_url.to_s if tweet.image?
+				-else
+
+					.comment_box2
+
+						.comment
+							%strong= tweet.content
+							%br
+						.image	
+							= image_tag tweet.image_url.to_s if tweet.image?
 
