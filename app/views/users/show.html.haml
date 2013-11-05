@@ -1,2 +1,12 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+#user_show
+	
+	.user_box
+
+		= image_tag @user.image_url(:thumb).to_s, class: "user_image"
+		.profile
+			.username
+				= @user.username
+			.account_name
+				= '@' + @user.account_name
+			.bio
+				= @user.bio
