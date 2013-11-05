@@ -10,8 +10,7 @@ Yaki::Application.routes.draw do
   resources :users, only: [ :show, :index ], :path => 'users/custom'
  
   resources :tweets, except: [ :show, :new ] do
-    post :favorite
-    delete :favorite, action: :unfavorite
+    resource :favorite, only: [:create, :destroy]
   end  
 
   unauthenticated do

@@ -1,6 +1,6 @@
 class Tweet < ActiveRecord::Base
   attr_accessible :content, :image
-  default_scope order('created_at DESC')
+  default_scope order('created_at DESC').includes(:favorites)
   belongs_to :user
   has_many :favorites
   mount_uploader :image, ImageUploader

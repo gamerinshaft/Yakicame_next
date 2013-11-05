@@ -85,17 +85,4 @@ class TweetsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  def favorite
-    @tweet = Tweet.find(params[:tweet_id])
-    current_user.favorites.create(tweet: @tweet)
-    redirect_to tweets_path
-  end  
-
-  def unfavorite
-    @tweet = Tweet.find(params[:tweet_id])
-    @favorite = current_user.favorites.find_by_tweet_id(params[:tweet_id])
-    @favorite.destroy
-    redirect_to tweets_path
-  end  
 end
