@@ -9,5 +9,6 @@
 						= link_to content_tag(:i, nil, class: "icon-share"), destroy_user_session_path, method: :delete
 				
 				%li
-					= link_to 'edit', edit_user_registration_path
+					- if user_signed_in?
+						= link_to 'edit', edit_user_registration_path
 			

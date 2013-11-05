@@ -27,11 +27,17 @@
 						.fa_box
 									
 							.edit
-								= link_to '編集', edit_tweet_path(tweet)
-							.favorite
-								= link_to 'お気に入り', tweets_path
+								-if tweet.user == current_user
+									= link_to '編集', edit_tweet_path(tweet)
+							-if tweet.user == current_user
+								.favorite1
+									= link_to 'お気に入り', tweets_path
+							-else
+								.favorite2
+									= link_to 'お気に入り', tweets_path
 							.destroy
-								= link_to '削除', tweet, :method => :delete, :data => { :confirm => "Are you ok? "}
+								-if tweet.user == current_user
+									= link_to '削除', tweet, :method => :delete, :data => { :confirm => "Are you ok? "}
 
 				.comment_box
 					.comment
