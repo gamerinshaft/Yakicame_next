@@ -7,7 +7,7 @@
       = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
         .login_box
           .login
-            .login_text ユーザーID or メールアドレス
+            .login_text ユーザー名 or メールアドレス
             = f.text_field :login, :autofocus => true, class: "login_form"
         .password_box
           .password
