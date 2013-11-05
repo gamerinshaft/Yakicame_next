@@ -4,61 +4,62 @@
 	.tweet_box
 
 		-@tweets.each do |tweet|
-			.user_box
+			-if Follow.exists?(user_id: current_user.id, followed_id: tweet.user.id) || tweet.user == current_user
+				.user_box
 
-				.user_profile_box
-					-if tweet.user == current_user
-						= image_tag tweet.user.image_url(:thumb).to_s, class: "cuser_image"
+					.user_profile_box
+						-if tweet.user == current_user
+							= image_tag tweet.user.image_url(:thumb).to_s, class: "cuser_image"
+						-else
+							= image_tag tweet.user.image_url(:thumb).to_s, class: "user_image" 
+
+						.names
+							.username
+								-if tweet.user == current_user
+									.cuser
+										%strong= tweet.user.username
+								-else 
+									.other
+										%strong= tweet.user.username
+							
+								%p= '@' + tweet.user.account_name
+
+
+							.fa_box
+										
+								.edit
+									-if tweet.user == current_user
+										= link_to '編集', edit_tweet_path(tweet)
+								-if tweet.user == current_user
+									.favorite1
+										-if tweet.favorited? current_user
+											= link_to 'お気に入り', tweet_favorite_path(tweet), method: :delete
+										-else
+											= link_to 'お気に入り', tweet_favorite_path(tweet), method: :post
+								-else
+									.favorite2
+										-if tweet.favorited? current_user
+											= link_to 'お気に入り', tweet_favorite_path(tweet), method: :delete
+										-else
+											= link_to 'お気に入り', tweet_favorite_path(tweet), method: :post
+								.destroy
+									-if tweet.user == current_user
+										= link_to '削除', tweet, :method => :delete, :data => { :confirm => "Are you ok? "}
+					-if tweet.favorited? current_user				
+						.comment_box1
+
+							.comment
+								%strong= tweet.content
+								%br
+							.image	
+								= image_tag tweet.image_url.to_s if tweet.image?
 					-else
-						= image_tag tweet.user.image_url(:thumb).to_s, class: "user_image" 
 
-					.names
-						.username
-							-if tweet.user == current_user
-								.cuser
-									%strong= tweet.user.username
-							-else 
-								.other
-									%strong= tweet.user.username
-						
-							%p= '@' + tweet.user.account_name
+						.comment_box2
 
-
-						.fa_box
-									
-							.edit
-								-if tweet.user == current_user
-									= link_to '編集', edit_tweet_path(tweet)
-							-if tweet.user == current_user
-								.favorite1
-									-if tweet.favorited? current_user
-										= link_to 'お気に入り', tweet_favorite_path(tweet), method: :delete
-									-else
-										= link_to 'お気に入り', tweet_favorite_path(tweet), method: :post
-							-else
-								.favorite2
-									-if tweet.favorited? current_user
-										= link_to 'お気に入り', tweet_favorite_path(tweet), method: :delete
-									-else
-										= link_to 'お気に入り', tweet_favorite_path(tweet), method: :post
-							.destroy
-								-if tweet.user == current_user
-									= link_to '削除', tweet, :method => :delete, :data => { :confirm => "Are you ok? "}
-				-if tweet.favorited? current_user				
-					.comment_box1
-
-						.comment
-							%strong= tweet.content
-							%br
-						.image	
-							= image_tag tweet.image_url.to_s if tweet.image?
-				-else
-
-					.comment_box2
-
-						.comment
-							%strong= tweet.content
-							%br
-						.image	
-							= image_tag tweet.image_url.to_s if tweet.image?
+							.comment
+								%strong= tweet.content
+								%br
+							.image	
+								= image_tag tweet.image_url.to_s if tweet.image?
 
