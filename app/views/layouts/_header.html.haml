@@ -11,4 +11,7 @@
 				%li
 					- if user_signed_in?
 						= link_to 'edit', edit_user_registration_path
+				%li
+					-if user_signed_in?
+						= link_to 'members', users_index_path
 			
