@@ -17,8 +17,8 @@
       %tr
         %td= current_user.tweets.count
         %td= current_user.favorites.count
-        %td　23
-        %td　23
+        %td= current_user.follows.count
+        %td= current_user.inverse_follows.count
   .form_box
     = form_for @tweet do |f|
       - if @tweet.errors.any?
