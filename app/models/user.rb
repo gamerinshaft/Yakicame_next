@@ -29,5 +29,8 @@ class User < ActiveRecord::Base
     end
   end  
   # attr_accessible :title, :body
-  
+
+  def followed? user
+    Follow.exists?(user_id: user.id, followed_id: self.id)
+  end  
 end

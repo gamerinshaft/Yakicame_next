@@ -11,7 +11,11 @@
 			.detail
 				= link_to 'プロフィールをみる',user_path(u)
 			.follow
-				= link_to "follow", user_follow_path(u), method: :post
+				-if u == current_user
+				-elsif not u.followed? current_user
+					= link_to "follow", user_follow_path(u), method: :post
+				-else
+					=link_to "unfollow", user_follow_path(u), method: :delete
 			.tweet_num
 				tweet
 			.fav_num
