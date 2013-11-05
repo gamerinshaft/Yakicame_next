@@ -11,7 +11,11 @@ class User < ActiveRecord::Base
   # This is in addition to a real persisted field like 'Username'
   attr_accessor :login
   attr_accessible :login
-  
+
+  has_many :follows
+  has_many :following_users, through: :follows, source: :user
+  has_many :inverse_follows, class_name: Follow, foreign_key: :followed_id
+  has_many :followed_users, through: :inverse_follows
   has_many :tweets, dependent: :destroy
   has_many :favorites
   mount_uploader :image, ImageUploader

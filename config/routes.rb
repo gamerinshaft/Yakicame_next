@@ -7,7 +7,9 @@ Yaki::Application.routes.draw do
 
   
   devise_for :users
-  resources :users, only: [ :show, :index ], :path => 'users/custom'
+  resources :users, only: [ :show, :index ], :path => 'users/custom' do
+    resource :follow, only: [:create, :destroy]
+  end  
  
   resources :tweets, except: [ :show, :new ] do
     resource :favorite, only: [:create, :destroy]
