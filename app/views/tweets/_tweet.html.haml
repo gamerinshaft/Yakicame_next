@@ -7,8 +7,10 @@
 			.user_box
 
 				.user_profile_box
-
-					= image_tag tweet.user.image_url(:thumb).to_s, class: "user_image"
+					-if tweet.user == current_user
+						= image_tag tweet.user.image_url(:thumb).to_s, class: "cuser_image"
+					-else
+						= image_tag tweet.user.image_url(:thumb).to_s, class: "user_image"
 
 					.names
 						.username
