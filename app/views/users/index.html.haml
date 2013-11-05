@@ -1,6 +1,26 @@
+#users_index
+	.title
+		%h1 ユーザー一覧
+	.members
+		- @users.each do |u|
+			= image_tag u.image_url(:thumb), class: 'image'
+			.username
+				= u.username
+			.account_name  	 
+				= '@' + u.account_name
+			.detail
+				=link_to 'プロフィールをみる',user_path(u)
+			.tweet_num
+				tweet
+			.fav_num
+				fav
+			.follow_num
+				follow
+			.follower_num
+				follower
+			= u.bio
+			%br
 
-%h1 ユーザー一覧
-%p フォローしましょう！
- 
+
 
 
