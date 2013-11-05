@@ -31,10 +31,16 @@
 									= link_to '編集', edit_tweet_path(tweet)
 							-if tweet.user == current_user
 								.favorite1
-									= link_to 'お気に入り', tweet_favorite_path(tweet), method: :post
+									-if tweet.favorited? current_user
+										= link_to 'お気に入り', tweet_favorite_path(tweet), method: :delete
+									-else
+										= link_to 'お気に入り', tweet_favorite_path(tweet), method: :post
 							-else
 								.favorite2
-									= link_to 'お気に入り', tweet_favorite_path(tweet), method: :post
+									-if tweet.favorited? current_user
+										= link_to 'お気に入り', tweet_favorite_path(tweet), method: :delete
+									-else
+										= link_to 'お気に入り', tweet_favorite_path(tweet), method: :post
 							.destroy
 								-if tweet.user == current_user
 									= link_to '削除', tweet, :method => :delete, :data => { :confirm => "Are you ok? "}
