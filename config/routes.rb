@@ -2,12 +2,12 @@ Yaki::Application.routes.draw do
  
   
  
-  get "users/index", controller: 'users'
+
   get "homes/index"
 
-
+  
   devise_for :users
-  resources :users, only: [ :show, :index ]
+  resources :users, only: [ :show, :index ], :path => 'users/custom'
   resources :tweets, except: [ :show, :new ]
 
   unauthenticated do
