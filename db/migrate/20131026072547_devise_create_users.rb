@@ -33,7 +33,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :username
       t.text :bio
       t.string :image
-
+      t.string :account_name
       t.timestamps
     end
 

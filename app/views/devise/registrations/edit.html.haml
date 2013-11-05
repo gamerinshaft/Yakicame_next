@@ -9,9 +9,14 @@
 
         .username
           .username_text
-            ユーザーID
+            ユーザー名
           %br/
           = f.text_field :username, class: "username_box"
+        .account_name
+          .account_name_text
+            アカウントID
+          %br/
+          =f.text_field :account_name, class: "account_name_box"
         .email
           .email_text
             メールアドレス

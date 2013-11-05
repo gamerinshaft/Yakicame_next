@@ -3,7 +3,7 @@
     = image_tag current_user.image_url(:thumb).to_s , class: "cuser_image"
     .cuser_box
       .cusername
-        = "@" + current_user.username
+        = "@" + current_user.account_name
 
       .user_at
         = link_to "プロフィールを見る", user_path(current_user)
