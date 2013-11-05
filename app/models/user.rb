@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   attr_accessible :login
   
   has_many :tweets, dependent: :destroy
+  has_many :favorites
   mount_uploader :image, ImageUploader
 
   def self.find_first_by_auth_conditions(warden_conditions)
