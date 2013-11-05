@@ -9,7 +9,9 @@
 			.account_name  	 
 				= '@' + u.account_name
 			.detail
-				=link_to 'プロフィールをみる',user_path(u)
+				= link_to 'プロフィールをみる',user_path(u)
+			.follow
+				= link_to "follow", user_follow_path(u), method: :post
 			.tweet_num
 				tweet
 			.fav_num
