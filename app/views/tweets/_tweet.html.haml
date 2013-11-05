@@ -10,7 +10,7 @@
 					-if tweet.user == current_user
 						= image_tag tweet.user.image_url(:thumb).to_s, class: "cuser_image"
 					-else
-						= image_tag tweet.user.image_url(:thumb).to_s, class: "user_image"
+						= image_tag tweet.user.image_url(:thumb).to_s, class: "user_image" 
 
 					.names
 						.username
@@ -26,10 +26,10 @@
 
 						.fa_box
 									
-							.show
-								= link_to '編集', tweet
 							.edit
-								= link_to 'お気に入り', edit_tweet_path(tweet)
+								= link_to '編集', edit_tweet_path(tweet)
+							.favorite
+								= link_to 'お気に入り', tweets_path
 							.destroy
 								= link_to '削除', tweet, :method => :delete, :data => { :confirm => "Are you ok? "}
 
