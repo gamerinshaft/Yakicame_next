@@ -14,7 +14,12 @@
 
 					.names
 						.username
-							%strong= tweet.user.username
+							-if tweet.user == current_user
+								.cuser
+									%strong= tweet.user.username
+							-else 
+								.other
+									%strong= tweet.user.username
 						
 							%p= '@' + tweet.user.username
 
@@ -22,11 +27,11 @@
 						.fa_box
 									
 							.show
-								= link_to 'show', tweet
+								= link_to '編集', tweet
 							.edit
-								= link_to 'edit', edit_tweet_path(tweet)
+								= link_to 'お気に入り', edit_tweet_path(tweet)
 							.destroy
-								= link_to 'destroy', tweet, :method => :delete, :data => { :confirm => "Are you ok? "}
+								= link_to '削除', tweet, :method => :delete, :data => { :confirm => "Are you ok? "}
 
 				.comment_box
 					.comment
