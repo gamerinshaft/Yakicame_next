@@ -98,6 +98,7 @@ ja:
   errors: &errors
     format: ! '%{attribute}%{message}'
     messages:
+      not_saved: 入力内容に間違いがあります。
       accepted: を受諾してください。
       blank: を入力してください。
       present: は入力しないでください。
