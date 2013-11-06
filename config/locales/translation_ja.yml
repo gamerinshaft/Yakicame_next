@@ -1,0 +1,43 @@
+ja:
+  activerecord:
+    models:
+      favorite: favorite  #g
+      follow: follow  #g
+      tweet: tweet  #g
+      user: user  #g
+
+    attributes:
+      favorite:
+        tweet: :activerecord.models.tweet  #g
+        user: :activerecord.models.user  #g
+
+      follow:
+        followed_user: :activerecord.models.followed_user  #g
+        user: :activerecord.models.user  #g
+
+      tweet:
+        content: content  #g
+        favorites: favorites  #g
+        image: image  #g
+        user: :activerecord.models.user  #g
+
+      user:
+        account_name: account_name  #g
+        bio: bio  #g
+        current_sign_in_at: current_sign_in_at  #g
+        current_sign_in_ip: current_sign_in_ip  #g
+        email: email  #g
+        encrypted_password: encrypted_password  #g
+        favorites: favorites  #g
+        followed_users: followed_users  #g
+        following_users: following_users  #g
+        follows: follows  #g
+        image: image  #g
+        inverse_follows: inverse_follows  #g
+        last_sign_in_at: last_sign_in_at  #g
+        last_sign_in_ip: last_sign_in_ip  #g
+        remember_created_at: remember_created_at  #g
+        reset_password_sent_at: reset_password_sent_at  #g
+        reset_password_token: reset_password_token  #g
+        tweets: tweets  #g
+        username: username  #g
