@@ -8,8 +8,19 @@
 				= image_tag u.image_url(:thumb), class: 'image'
 				.user_box
 					.names
-						.username
-							%p= u.username
+						-if u.account_name == current_user.account_name
+							.username1
+								%p= u.username
+						-elsif (u.followed? current_user) && (current_user.followed? u)
+							.username2
+								%p= u.username
+						-elsif (u.followed? current_user) || (current_user.followed? u)
+							.username3
+								%p= u.username
+						-else
+							.username4
+								%p= u.username
+						
 						.account_name  	 
 							= '@' + u.account_name
 					.user_at
