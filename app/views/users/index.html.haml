@@ -3,29 +3,31 @@
 		%h1 ユーザー一覧
 	.members
 		- @users.each do |u|
-			= image_tag u.image_url(:thumb), class: 'image'
-			.username
-				= u.username
-			.account_name  	 
-				= '@' + u.account_name
-			.detail
-				= link_to 'プロフィールをみる',user_path(u)
-			.follow
-				-if u == current_user
-				-elsif not u.followed? current_user
-					= link_to "follow", user_follow_path(u), method: :post
-				-else
-					=link_to "unfollow", user_follow_path(u), method: :delete
-			.tweet_num
-				tweet
-			.fav_num
-				fav
-			.follow_num
-				follow
-			.follower_num
-				follower
-			= u.bio
-			%br
+			
+			.profile.span4
+				= image_tag u.image_url(:thumb), class: 'image'
+				.user_box
+					.username
+						= u.username
+					.account_name  	 
+						= '@' + u.account_name
+					.user_at
+						= link_to 'プロフィールをみる',user_path(u)
+				.list
+					%table
+						%tr
+							%th.span3 ツイート
+							%th.span3	お気に入り
+							%th.span3	フォロー
+							%th.span3　フォロワー
+						%tr
+							%td= u.tweets.count
+							%td= u.favorites.count
+							%td= u.follows.count
+							%td= u.inverse_follows.count
+				.bio_box
+					= u.bio
+					%br
 
 
 

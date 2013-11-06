@@ -47,7 +47,7 @@
 										= link_to '削除', tweet, :method => :delete, :data => { :confirm => "Are you ok? "}
 					-if tweet.favorited? current_user				
 						.comment_box1
-
+							
 							.comment
 								%strong= tweet.content
 								%br
