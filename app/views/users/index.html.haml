@@ -1,58 +1,90 @@
 #users_index
 	.title
 		%h1 ユーザー一覧
+	
 	.members
-		
-		- @users.each do |u|
-
-			.profile.span4
-				= image_tag u.image_url(:thumb), class: 'image'
-				.user_box
-					.names
-						-if u.account_name == current_user.account_name
-							.username1
-								%p= u.username
-						-elsif (u.followed? current_user) && (current_user.followed? u)
-							.username2
-								%p= u.username
-						-elsif (u.followed? current_user) || (current_user.followed? u)
-							.username3
-								%p= u.username
-						-else
-							.username4
-								%p= u.username
-						
-						.account_name  	 
-							= '@' + u.account_name
-					.links
-						%table
-							%tr
-								%td
-									.user_at
-										= link_to 'プロフィール',user_path(u)
-								%td
-									.follow
-										-if u == current_user
-										-elsif not u.followed? current_user
-											= link_to "follow", user_follow_path(u), method: :post
-										-else
-											= link_to "unfollow", user_follow_path(u), method: :delete
-				.list
+		.profile.span4
+			= image_tag current_user.image_url(:thumb), class: 'image'
+			.user_box
+				.names
+					.username1
+						%p= current_user.username
+					.account_name
+						= '@' + current_user.account_name
+				.links
 					%table
 						%tr
-							%th.span3 ツイート
-							%th.span3	お気に入り
-							%th.span3	フォロー
-							%th.span3 フォロワー
-						%tr
-							%td= u.tweets.count
-							%td= u.favorites.count
-							%td= u.follows.count
-							%td= u.inverse_follows.count
-				.bio_box
-					%strong
-						%p= u.bio
-					%br
+							%td
+								.user_at
+									= link_to 'プロフィール', user_path(current_user)
+								.follow
+			.list
+				%table
+					%tr
+						%th.span3 ツイート
+						%th.span3	お気に入り
+						%th.span3	フォロー
+						%th.span3 フォロワー
+					%tr
+						%td= current_user.tweets.count
+						%td= current_user.favorites.count
+						%td= current_user.follows.count
+						%td= current_user.inverse_follows.count
+			.bio_box
+				%strong
+					%p= current_user.bio
+
+
+		- @users.each do |u|
+			-if not u == current_user
+				.profile.span4
+					= image_tag u.image_url(:thumb), class: 'image'
+					.user_box
+						.names
+							-if u.account_name == current_user.account_name
+								.username1
+									%p= u.username
+							-elsif (u.followed? current_user) && (current_user.followed? u)
+								.username2
+									%p= u.username
+							-elsif (u.followed? current_user) || (current_user.followed? u)
+								.username3
+									%p= u.username
+							-else
+								.username4
+									%p= u.username
+							
+							.account_name  	 
+								= '@' + u.account_name
+						.links
+							%table
+								%tr
+									%td
+										.user_at
+											= link_to 'プロフィール', user_path(u)
+									%td
+										.follow
+											-if u == current_user
+											-elsif not u.followed? current_user
+												= link_to "follow", user_follow_path(u), method: :post
+											-else
+												= link_to "unfollow", user_follow_path(u), method: :delete
+					.list
+						%table
+							%tr
+								%th.span3 ツイート
+								%th.span3	お気に入り
+								%th.span3	フォロー
+								%th.span3 フォロワー
+							%tr
+								%td= u.tweets.count
+								%td= u.favorites.count
+								%td= u.follows.count
+								%td= u.inverse_follows.count
+					.bio_box
+						%strong
+							%p= u.bio
+						%br
 	.space_box
 
 
