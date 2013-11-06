@@ -56,7 +56,7 @@ ja:
     distance_in_words:
       about_x_hours:
         one: 約1時間
-        other: 約%{count}時間
+        other: 約%{count}時間前
       about_x_months:
         one: 約1ヶ月
         other: 約%{count}ヶ月
@@ -81,7 +81,7 @@ ja:
         other: ! '%{count}日'
       x_minutes:
         one: 1分
-        other: ! '%{count}分'
+        other: ! '%{count}分前'
       x_months:
         one: 1ヶ月
         other: ! '%{count}ヶ月'
