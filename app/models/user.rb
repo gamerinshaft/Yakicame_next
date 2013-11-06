@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_many :tweets, dependent: :destroy
   has_many :favorites
   mount_uploader :image, ImageUploader
+  validates :bio, length: {in: 0..60}
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
