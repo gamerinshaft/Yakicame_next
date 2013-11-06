@@ -20,7 +20,8 @@ class User < ActiveRecord::Base
   has_many :favorites
   mount_uploader :image, ImageUploader
   validates :bio, length: {in: 0..60}
-
+  validates :account_name, length: {in: 1..12}, presence: true
+  validates :username, presence: true, length: {in: 1..6}
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
