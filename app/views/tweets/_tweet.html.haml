@@ -21,8 +21,10 @@
 								-else 
 									.other
 										%strong= tweet.user.username
-							
-								%p= '@' + tweet.user.account_name
+								.side
+									.time
+										= time_ago_in_words tweet.created_at
+									%p= '@' + tweet.user.account_name
 
 
 							.fa_box

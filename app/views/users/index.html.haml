@@ -2,6 +2,7 @@
 	.title
 		%h1 ユーザー一覧
 	.members
+		
 		- @users.each do |u|
 
 			.profile.span4
@@ -23,8 +24,19 @@
 						
 						.account_name  	 
 							= '@' + u.account_name
-					.user_at
-						= link_to 'プロフィールをみる',user_path(u)
+					.links
+						%table
+							%tr
+								%td
+									.user_at
+										= link_to 'プロフィール',user_path(u)
+								%td
+									.follow
+										-if u == current_user
+										-elsif not u.followed? current_user
+											= link_to "follow", user_follow_path(u), method: :post
+										-else
+											= link_to "unfollow", user_follow_path(u), method: :delete
 				.list
 					%table
 						%tr
