@@ -26,14 +26,42 @@
 		.tab-content
 			#tweet.tab-pane.active
 				- @user.tweets.each do |tweet|
-					= tweet.content
+
+					.tweet_box.span4
+						= image_tag tweet.user.image_url(:thumb).to_s, class: "user_image"
+						.names
+							.username
+								=@user.username
+						.time
+							= time_ago_in_words tweet.created_at
+						.content
+							= tweet.content
+						.tweet_image
+							= image_tag tweet.image_url.to_s if tweet.image?
+					
 					
 			#favorite.tab-pane
-				a
+				- @user.favorites.each do |fav|
+					= fav.tweet.content
 				
 			#follow.tab-pane
+				- @user.follows.each do |follow| 
+					= follow.followed_user.username
 
+			
 			#follower.tab-pane
+				- @user.followed_users.each do |follower|
+
+					= follower.username
+
+				
+				
+				
+
+
+			
+					
+					
 
 
 
