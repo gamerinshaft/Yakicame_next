@@ -4,9 +4,37 @@
 
 		= image_tag @user.image_url(:thumb).to_s, class: "user_image"
 		.profile
-			.username
-				= @user.username
-			.account_name
-				= '@' + @user.account_name
+			.user
+				.username
+					= @user.username
+				.account_name
+					= '@' + @user.account_name
 			.bio
 				= @user.bio
+
+	.tab
+		%ul#markdown_tab.nav.nav-tabs
+			%li.active
+				%a{"data-toggle" => "tab", href: "#tweet"} ツイート
+			%li
+				%a{"data-toggle" => "tab", href: "#favorite"}　お気に入り
+			%li
+				%a{"data-toggle" => "tab", href: "#follow"} フォロー
+			%li
+				%a{"data-toggle" => "tab", href: "#follower"}　フォロワー
+
+		.tab-content
+			#tweet.tab-pane.active
+				- @user.tweets.each do |tweet|
+					= tweet.content
+					
+			#favorite.tab-pane
+				a
+				
+			#follow.tab-pane
+
+			#follower.tab-pane
+
+
+
+
