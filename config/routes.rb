@@ -1,13 +1,7 @@
 Yaki::Application.routes.draw do
- 
-  
- 
-
-  get "homes/index"
-
-  
   devise_for :users
-  resources :users, only: [ :show, :index ], :path => 'users/custom' do
+  get "homes/index"
+  resources :users, only: [:show, :index], :path => 'users/custom' do
     resource :follow, only: [:create, :destroy]
   end  
  
