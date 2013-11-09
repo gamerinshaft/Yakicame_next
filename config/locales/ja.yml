@@ -78,7 +78,7 @@ ja:
         other: ! '%{count}年以上'
       x_days:
         one: 1日
-        other: ! '%{count}日'
+        other: ! '%{count}日前'
       x_minutes:
         one: 1分
         other: ! '%{count}分前'

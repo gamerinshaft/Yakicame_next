@@ -27,7 +27,7 @@
 			#tweet.tab-pane.active
 				- @user.tweets.each do |tweet|
 
-					.tweet_box.span4
+					.tweet_box.content.container
 						= image_tag tweet.user.image_url(:thumb).to_s, class: "user_image"
 						.names
 							.username
