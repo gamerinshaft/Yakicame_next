@@ -19,3 +19,5 @@
 
 # Ignore the pictuers uploaded
 /public/uploads
+
+/app/assets/stylesheets/.sass-cache
