@@ -14,5 +14,5 @@
 				%li.active
 					- if user_signed_in?
 				
-						= link_to content_tag(:i, nil, class: "icon-share"), destroy_user_session_path, method: :delete
+						= link_to fa_icon("share"), destroy_user_session_path, method: :delete
 			

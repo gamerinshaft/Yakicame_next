@@ -10,7 +10,6 @@
 		:box-shadow 0px 0px 30px 5px rgba(0,0,0,0.2)
 		:border 1px solid #ccc
 		:margin-bottom 150px
-
 		:border-radius 10px
 		:width 92%
 		h4
@@ -20,6 +19,7 @@
 		.tweet_box
 			
 			.user_box
+				:clear both
 				
 				.user_profile_box
 					
@@ -123,9 +123,6 @@
 					:margin-bottom -13px
 					:background-color #fefdb7
 					
-						
-						
-					
 					.comment
 						:font-size 15px
 						:width 80%
@@ -133,9 +130,55 @@
 						:margin-left 120px
 						:padding-right 10px
 						:word-wrap break-word
+
 					.image
 						:padding-left 120px
 						:text-align center
+
+					.fav_box
+						:margin-top 10px
+						:border-top 2px solid #da0000
+						:border-bottom 2px solid #da0000
+						:margin-left 120px
+						:padding-bottom 15px
+						:align center
+						:width 78%
+						:height 50px
+						:clear both
+
+						.fav_text
+							:font-size 15px
+							:margin-left 16px
+							:margin-top 10px
+							:float left
+
+						.fav_count
+							:margin-left 10px
+							:margin-top -10px
+						
+						.fav_image
+							:margin-left 15px
+							
+							:float left
+							:border-radius 3px
+							:margin-top 13px
+							:border 0px solid orange
+							:width 35px
+							:max-height 35px	
+
+						.fav_text2
+							:color red
+							.fav_count2
+								p
+									:color orange
+									:text-align center
+									:font-size 40px
+							strong
+								:margin-right 70px
+								:margin-top -20px
+								:float right
+								:font-size 20px
+				
 				.comment_box2
 					:padding 25px 40px
 					:margin-bottom -13px
@@ -148,9 +191,52 @@
 						:padding-left 120px
 						:padding-right 10px
 						:word-wrap break-word
+				
 					.image
 						:padding-left 120px
 						:text-align center
+					.fav_box
+						:margin-top 10px
+						:border-top 2px solid #da0000
+						:border-bottom 2px solid #da0000
+						:margin-left 120px
+						:padding-bottom 15px
+						:align center
+						:width 78%
+						:height 50px
+						:clear both
+
+						.fav_text
+							:font-size 15px
+							:margin-left 16px
+							:margin-top 10px
+							:float left
+
+						.fav_count
+							:margin-left 10px
+							:margin-top -10px
+						
+						.fav_image
+							:margin-left 15px
+							:float left
+							:border-radius 3px
+							:margin-top 13px
+							:border 0px solid orange
+							:width 35px
+							:height 35px	
+						.fav_text2
+							:color red
+							.fav_count2
+								p
+									:color orange
+									:text-align center
+									:font-size 40px
+							strong
+								:margin-right 70px
+								:margin-top -20px
+								:float right
+								:font-size 20px
+					
 	#form
 		:background-color #111
 		:box-shadow 0px 0px 30px 5px rgba(0,0,0,0.2)
@@ -158,6 +244,7 @@
 		:position fixed
 		:border 1px solid #ccc
 		:border-radius 15px
+		
 		.profile
 			:clear both
 			:padding-bottom 10px
