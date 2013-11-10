@@ -1,7 +1,10 @@
 #users_index
 	.title
 		%h1 ユーザー一覧
-	
+	.page_box
+		.page
+			= paginate @users
+
 	.members
 		.profile.span4
 			= image_tag current_user.image_url(:thumb), class: 'image'
@@ -53,8 +56,8 @@
 							-else
 								.username4
 									%p= u.username
-							
-							.account_name  	 
+
+							.account_name
 								= '@' + u.account_name
 						.links
 							%table
