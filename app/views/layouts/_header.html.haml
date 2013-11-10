@@ -3,16 +3,15 @@
 		.navbar-inner
 			%a.brand{href: "http://localhost:3000"} YakiCame
 			%ul.nav
-				
-				
+
+
 				%li
 					- if user_signed_in?
 						= link_to 'edit', edit_user_registration_path
 				%li
 					-if user_signed_in?
 						= link_to 'members', users_path
-				%li.active
+				%li
 					- if user_signed_in?
-				
+
 						= link_to fa_icon("share"), destroy_user_session_path, method: :delete
-			
