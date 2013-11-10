@@ -31,7 +31,28 @@
 
 								.edit
 									-if tweet.user == current_user
-										= link_to '編集', edit_tweet_path(tweet)
+										%a{"data-toggle" => "modal", :href => "#show_modal", :role => "button"} 編集
+										#show_modal.modal.hide.fade
+											.modal-header
+												%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+												%h3 ツイートを編集
+											.modal-body
+												= form_for tweet do |f|
+													- if @tweet.errors.any?
+														#error_explanation
+															%h4= "#{pluralize(@tweet.errors.count, "error")} prohibited this tweet from being saved:"
+															%ul
+																- @tweet.errors.full_messages.each do |msg|
+																	%li= msg
+													.field
+														= f.file_field :image,class: "image"
+													.field
+														= f.text_area :content, rows: 7, placeholder: "投稿する", class: "text_area"
+													.actions
+														= f.submit '送信', class: "btn-primary"
+
+
+
 								-if tweet.user == current_user
 									.favorite1
 										-if tweet.favorited? current_user

@@ -62,13 +62,15 @@ class TweetsController < ApplicationController
   # PUT /tweets/1.json
   def update
     @tweet = Tweet.find(params[:id])
+    @tweets = Tweet.order("created_at DESC").page(params[:page]).per(18)
 
     respond_to do |format|
       if @tweet.update_attributes(params[:tweet])
-        format.html { redirect_to @tweet, notice: 'Tweet was successfully updated.' }
+        format.html { redirect_to tweets_path }
         format.json { head :no_content }
+
       else
-        format.html { render action: "edit" }
+        format.html { render action: "index" }
         format.json { render json: @tweet.errors, status: :unprocessable_entity }
       end
     end
