@@ -41,8 +41,10 @@
 
 
 			#favorite.tab-pane
-				- @user.favorites.each do |fav|
-					= fav.tweet.content　
+				- @user.favoriting_tweets.each do |fav|
+					= fav.content
+					%hr
+
 
 			#follow.tab-pane
 				- @user.follows.each do |follow|

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :bio, :image, :account_name
-  
+
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'Username'
   attr_accessor :login
@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
 
   has_many :tweets, dependent: :destroy
   has_many :favorites
+  has_many :favoriting_tweets, through: :favorites, source: :tweet
   mount_uploader :image, ImageUploader
   validates :bio, length: {in: 0..60}
   validates :account_name, length: {in: 1..12}, presence: true, uniqueness: true
@@ -30,10 +31,10 @@ class User < ActiveRecord::Base
     else
       where(conditions).first
     end
-  end  
+  end
   # attr_accessible :title, :body
 
   def followed? user
     Follow.exists?(user_id: user.id, followed_id: self.id)
-  end  
+  end
 end
