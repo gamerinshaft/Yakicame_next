@@ -11,5 +11,5 @@ class Tweet < ActiveRecord::Base
     favorites.any? do |f|
       f.user == user
     end
-  end 
+  end
 end
