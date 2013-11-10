@@ -11,14 +11,14 @@
 						-if tweet.user == current_user
 							= image_tag tweet.user.image_url(:thumb).to_s, class: "cuser_image"
 						-else
-							= image_tag tweet.user.image_url(:thumb).to_s, class: "user_image" 
+							= image_tag tweet.user.image_url(:thumb).to_s, class: "user_image"
 
 						.names
 							.username
 								-if tweet.user == current_user
 									.cuser
 										%strong= tweet.user.username
-								-else 
+								-else
 									.other
 										%strong= tweet.user.username
 								.side
@@ -28,7 +28,7 @@
 
 
 							.fa_box
-										
+
 								.edit
 									-if tweet.user == current_user
 										= link_to '編集', edit_tweet_path(tweet)
@@ -47,33 +47,33 @@
 								.destroy
 									-if tweet.user == current_user
 										= link_to '削除', tweet, :method => :delete, :data => { :confirm => "Are you ok? "}
-					- if tweet.favorited? current_user				
+					- if tweet.favorited? current_user
 						.comment_box1
-							
+
 							.comment
 								%strong= tweet.content
 								%br
-							.image	
+							.image
 								= image_tag tweet.image_url.to_s if tweet.image?
 							- if tweet.favorites.count>7
 								.fav_box
-									.fav_text2	
+									.fav_text2
 										%p お気に入り件数
 										.fav_count2
 											%p= tweet.favorites.count
 										%strong　件
-									
+
 
 							- else
 								.fav_box
-									.fav_text	
+									.fav_text
 										%p Fav.
 										.fav_count
 											%strong= tweet.favorites.count
 									- tweet.favoriting_users.each do |fav|
 										= image_tag fav.image_url.to_s, class: "fav_image"
-									
-							
+
+
 					- else
 
 						.comment_box2
@@ -81,12 +81,12 @@
 							.comment
 								%strong= tweet.content
 								%br
-							.image	
+							.image
 								= image_tag tweet.image_url.to_s if tweet.image?
 							- if tweet.favorites.any?
 								-if  tweet.favorites.count>7
 									.fav_box
-										.fav_text2	
+										.fav_text2
 											%p お気に入り件数
 											.fav_count2
 												%p= tweet.favorites.count
@@ -94,13 +94,14 @@
 
 								-else
 									.fav_box
-										.fav_text	
+										.fav_text
 											%p Fav.
 											.fav_count
 												%strong= tweet.favorites.count
 										- tweet.favoriting_users.each do |fav|
 											= image_tag fav.image_url.to_s, class: "fav_image"
-								
+	= paginate @tweets
 
-									
+
+
 
