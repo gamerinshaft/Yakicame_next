@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   has_many :favoriting_tweets, through: :favorites, source: :tweet
   mount_uploader :image, ImageUploader
   validates :bio, length: {in: 0..60}
-  validates :account_name, length: {in: 1..12}, presence: true, uniqueness: true
+  validates :account_name, length: {in: 1..8}, presence: true, uniqueness: true
   validates :username, presence: true, length: {in: 1..6}
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
