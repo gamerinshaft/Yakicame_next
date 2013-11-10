@@ -67,7 +67,15 @@
 											= link_to 'お気に入り', tweet_favorite_path(tweet), method: :post
 								.destroy
 									-if tweet.user == current_user
-										= link_to '削除', tweet, :method => :delete, :data => { :confirm => "Are you ok? "}
+										%a{"data-toggle" => "modal", :href => "#delete_modal", :role => "button"} 削除
+										#delete_modal.modal.hide.fade
+											.modal-header
+												%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+												%h3 ツイートを削除
+											.modal-body
+												%strong このツイートを削除しますか？
+											.modal-footer
+												= link_to 'OK', tweet, :method => :delete, class: "btn-primary"
 					- if tweet.favorited? current_user
 						.comment_box1
 

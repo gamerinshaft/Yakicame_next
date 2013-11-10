@@ -109,7 +109,11 @@
 								a
 								#show_modal.modal.hide.fade
 									.modal-header
-
+										:background-color #111
+										h3
+											:color white
+										.close
+											:color white
 									.modal-body
 										.field
 											.text_area
@@ -134,6 +138,23 @@
 							.destroy
 								:float left
 								:margin 0px 20px
+								#delete_modal.modal.hide.fade
+									.modal-header
+										:background-color #111
+										h3
+											:color white
+										.close
+											:color white
+									.modal-body
+									.modal-footer
+
+										.btn-primary
+											:font-size 15px
+											:heigh 30px
+											:width 100%
+											:border-radius 3px
+											:border 1px solid black
+											:padding 5px 10px
 
 				.comment_box1
 					:padding 25px 40px
