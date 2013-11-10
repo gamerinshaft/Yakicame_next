@@ -100,7 +100,9 @@
 												%strong= tweet.favorites.count
 										- tweet.favoriting_users.each do |fav|
 											= image_tag fav.image_url.to_s, class: "fav_image"
-	= paginate @tweets
+	.page_box
+		.page
+			= paginate @tweets
 
 
 
