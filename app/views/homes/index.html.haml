@@ -1,17 +1,30 @@
 #homes
+#myCarousel.carousel.slide
+  %ol.carousel-indicators
+    %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
+    %li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
+    %li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
+  / Carousel items
+  .carousel-inner
+    .active.item …
+    .item …
+    .item …
+  / Carousel nav
+  %a.carousel-control.left{"data-slide" => "prev", href: "#myCarousel"} ‹
+  %a.carousel-control.right{"data-slide" => "next", href: "#myCarousel"} ›
   .title
     %h1
       Yakicame
-   
+
     .row-fluid
       .span1
       .span3
         .sign_in
           .link
-            = link_to "sign in", user_session_path, class: "link1"
-      
+            = link_to "sign in", user_session_path, class: "btn-primary"
+
       .span3
         .sign_up
-          .link  
-            = link_to "sign up", new_user_registration_path, class: "link2" 
+          .link
+            = link_to "sign up", new_user_registration_path, class: "btn-success"
       .span5

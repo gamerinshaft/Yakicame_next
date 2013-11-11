@@ -5,14 +5,33 @@
 		#tweet
 			%h4
 				投稿一覧
-			.tweet_box
-				= render @tweets
-				.page_box
-					.page
-						= paginate @tweets
+			= render @tweets
+			.page_box
+				.page
+					= paginate @tweets
 
 	.span5
-		= render "form"
+		#form
+			.profile
+				=image_tag current_user.image_url(:thumb).to_s , class: "cuser_image"
+				.cuser_box
+					.cusername
+						= "@" + current_user.account_name
+					.user_at
+						= link_to "プロフィールを見る", user_path(current_user)
+			.list
+				%table
+					%tr
+						%th.span3 ツイート
+						%th.span3 お気に入り
+						%th.span3 フォロー
+						%th.span3 フォロワー
+					%tr
+						%td= current_user.tweets.count
+						%td= current_user.favorites.count
+						%td= current_user.follows.count
+						%td= current_user.inverse_follows.count
+			= render "form"
 
 
 

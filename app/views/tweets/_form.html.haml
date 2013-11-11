@@ -1,41 +1,21 @@
-#form
-  .profile
-    =image_tag current_user.image_url(:thumb).to_s , class: "cuser_image"
-    .cuser_box
-      .cusername
-        = "@" + current_user.account_name
 
-      .user_at
-        = link_to "プロフィールを見る", user_path(current_user)
-  .list
-    %table
-      %tr
-        %th.span3 ツイート
-        %th.span3 お気に入り
-        %th.span3 フォロー
-        %th.span3 フォロワー
-      %tr
-        %td= current_user.tweets.count
-        %td= current_user.favorites.count
-        %td= current_user.follows.count
-        %td= current_user.inverse_follows.count
-  .form_box
-    = form_for @tweet do |f|
-      - if @tweet.errors.any?
-        #error_explanation
-          %h4= "#{pluralize(@tweet.errors.count, "error")} prohibited this tweet from being saved:"
-          %ul
-            - @tweet.errors.full_messages.each do |msg|
-              %li= msg
-     
-      
-      .field
-        = f.file_field :image,class: "image"
-
-      .field
-        
-        = f.text_area :content, rows: 10, placeholder: "投稿する", class: "text_area"
+.form_box
+  = form_for @tweet do |f|
+    - if @tweet.errors.any?
+      #error_explanation
+        %h4= "#{pluralize(@tweet.errors.count, "error")} prohibited this tweet from being saved:"
+        %ul
+          - @tweet.errors.full_messages.each do |msg|
+            %li= msg
 
 
-      .actions
-        = f.submit '送信', class: "btn-primary"
+    .field
+      = f.file_field :image,class: "image"
+
+    .field
+
+      = f.text_area :content, rows: 10, placeholder: "投稿する", class: "text_area"
+
+
+    .actions
+      = f.submit '送信', class: "btn-primary"
