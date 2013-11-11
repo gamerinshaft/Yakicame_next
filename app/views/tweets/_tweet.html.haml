@@ -1,137 +1,128 @@
-#tweet
-	%h4
-		投稿一覧
-	.tweet_box
+-if Follow.exists?(user_id: current_user.id, followed_id: tweet.user.id) || tweet.user == current_user
+	.user_box
 
-		-@tweets.each do |tweet|
-			-if Follow.exists?(user_id: current_user.id, followed_id: tweet.user.id) || tweet.user == current_user
-				.user_box
+		.user_profile_box
+			-if tweet.user == current_user
+				= image_tag tweet.user.image_url(:thumb).to_s, class: "cuser_image"
+			-else
+				= image_tag tweet.user.image_url(:thumb).to_s, class: "user_image"
 
-					.user_profile_box
+			.names
+				.username
+					-if tweet.user == current_user
+						.cuser
+							%strong= tweet.user.username
+					-else
+						.other
+							%strong= tweet.user.username
+					.side
+						.time
+							= time_ago_in_words tweet.created_at
+						%p= '@' + tweet.user.account_name
+
+
+				.fa_box
+
+					.edit
 						-if tweet.user == current_user
-							= image_tag tweet.user.image_url(:thumb).to_s, class: "cuser_image"
-						-else
-							= image_tag tweet.user.image_url(:thumb).to_s, class: "user_image"
-
-						.names
-							.username
-								-if tweet.user == current_user
-									.cuser
-										%strong= tweet.user.username
-								-else
-									.other
-										%strong= tweet.user.username
-								.side
-									.time
-										= time_ago_in_words tweet.created_at
-									%p= '@' + tweet.user.account_name
-
-
-							.fa_box
-
-								.edit
-									-if tweet.user == current_user
-										%a{"data-toggle" => "modal", :href => "#show_modal", :role => "button"} 編集
-										#show_modal.modal.hide.fade
-											.modal-header
-												%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-												%h3 ツイートを編集
-											.modal-body
-												= form_for tweet do |f|
-													- if @tweet.errors.any?
-														#error_explanation
-															%h4= "#{pluralize(@tweet.errors.count, "error")} prohibited this tweet from being saved:"
-															%ul
-																- @tweet.errors.full_messages.each do |msg|
-																	%li= msg
-													.field
-														= f.file_field :image,class: "image"
-													.field
-														= f.text_area :content, rows: 7, placeholder: "投稿する", class: "text_area"
-													.actions
-														= f.submit '送信', class: "btn-primary"
+							%a{"data-toggle" => "modal", :href => "#show_modal", :role => "button"} 編集
+							#show_modal.modal.hide.fade
+								.modal-header
+									%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+									%h3 ツイートを編集
+								.modal-body
+									= form_for tweet do |f|
+										- if @tweet.errors.any?
+											#error_explanation
+												%h4= "#{pluralize(@tweet.errors.count, "error")} prohibited this tweet from being saved:"
+												%ul
+													- @tweet.errors.full_messages.each do |msg|
+														%li= msg
+										.field
+											= f.file_field :image,class: "image"
+										.field
+											= f.text_area :content, rows: 7, placeholder: "投稿する", class: "text_area"
+										.actions
+											= f.submit '送信', class: "btn-primary"
 
 
 
-								-if tweet.user == current_user
-									.favorite1
-										-if tweet.favorited? current_user
-											= link_to 'お気に入り', tweet_favorite_path(tweet), method: :delete
-										-else
-											= link_to 'お気に入り', tweet_favorite_path(tweet), method: :post
-								-else
-									.favorite2
-										-if tweet.favorited? current_user
-											= link_to 'お気に入り', tweet_favorite_path(tweet), method: :delete
-										-else
-											= link_to 'お気に入り', tweet_favorite_path(tweet), method: :post
-								.destroy
-									-if tweet.user == current_user
-										%a{"data-toggle" => "modal", :href => "#delete_modal", :role => "button"} 削除
-										#delete_modal.modal.hide.fade
-											.modal-header
-												%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-												%h3 ツイートを削除
-											.modal-body
-												%strong このツイートを削除しますか？
-											.modal-footer
-												= link_to 'OK', tweet, :method => :delete, class: "btn-primary"
-					- if tweet.favorited? current_user
-						.comment_box1
+					-if tweet.user == current_user
+						.favorite1
+							-if tweet.favorited? current_user
+								= link_to 'お気に入り', tweet_favorite_path(tweet), method: :delete
+							-else
+								= link_to 'お気に入り', tweet_favorite_path(tweet), method: :post
+					-else
+						.favorite2
+							-if tweet.favorited? current_user
+								= link_to 'お気に入り', tweet_favorite_path(tweet), method: :delete
+							-else
+								= link_to 'お気に入り', tweet_favorite_path(tweet), method: :post
+					.destroy
+						-if tweet.user == current_user
+							%a{"data-toggle" => "modal", :href => "#delete_modal", :role => "button"} 削除
+							#delete_modal.modal.hide.fade
+								.modal-header
+									%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+									%h3 ツイートを削除
+								.modal-body
+									%strong このツイートを削除しますか？
+								.modal-footer
+									= link_to 'OK', tweet, :method => :delete, class: "btn-primary"
+		- if tweet.favorited? current_user
+			.comment_box1
 
-							.comment
-								%strong= tweet.content
-								%br
-							.image
-								= image_tag tweet.image_url.to_s if tweet.image?
-							- if tweet.favorites.count>7
-								.fav_box
-									.fav_text2
-										%p お気に入り件数
-										.fav_count2
-											%p= tweet.favorites.count
-										%strong　件
-
-
-							- else
-								.fav_box
-									.fav_text
-										%p Fav.
-										.fav_count
-											%strong= tweet.favorites.count
-									- tweet.favoriting_users.each do |fav|
-										= image_tag fav.image_url.to_s, class: "fav_image"
+				.comment
+					%strong= tweet.content
+					%br
+				.image
+					= image_tag tweet.image_url.to_s if tweet.image?
+				- if tweet.favorites.count>7
+					.fav_box
+						.fav_text2
+							%p お気に入り件数
+							.fav_count2
+								%p= tweet.favorites.count
+							%strong　件
 
 
-					- else
+				- else
+					.fav_box
+						.fav_text
+							%p Fav.
+							.fav_count
+								%strong= tweet.favorites.count
+						- tweet.favoriting_users.each do |fav|
+							= image_tag fav.image_url.to_s, class: "fav_image"
 
-						.comment_box2
 
-							.comment
-								%strong= tweet.content
-								%br
-							.image
-								= image_tag tweet.image_url.to_s if tweet.image?
-							- if tweet.favorites.any?
-								-if  tweet.favorites.count>7
-									.fav_box
-										.fav_text2
-											%p お気に入り件数
-											.fav_count2
-												%p= tweet.favorites.count
-											%strong　件
+		- else
 
-								-else
-									.fav_box
-										.fav_text
-											%p Fav.
-											.fav_count
-												%strong= tweet.favorites.count
-										- tweet.favoriting_users.each do |fav|
-											= image_tag fav.image_url.to_s, class: "fav_image"
-	.page_box
-		.page
-			= paginate @tweets
+			.comment_box2
+
+				.comment
+					%strong= tweet.content
+					%br
+				.image
+					= image_tag tweet.image_url.to_s if tweet.image?
+				- if tweet.favorites.any?
+					-if  tweet.favorites.count>7
+						.fav_box
+							.fav_text2
+								%p お気に入り件数
+								.fav_count2
+									%p= tweet.favorites.count
+								%strong　件
+
+					-else
+						.fav_box
+							.fav_text
+								%p Fav.
+								.fav_count
+									%strong= tweet.favorites.count
+							- tweet.favoriting_users.each do |fav|
+								= image_tag fav.image_url.to_s, class: "fav_image"
 
 
 

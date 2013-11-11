@@ -1,12 +1,19 @@
 #tweet_index
-	
+
 	.span2
 	.span9
-		= render "tweet"
-  
+		#tweet
+			%h4
+				投稿一覧
+			.tweet_box
+				= render @tweets
+				.page_box
+					.page
+						= paginate @tweets
+
 	.span5
 		= render "form"
-	
-	
+
+
 
 
