@@ -70,7 +70,7 @@
 									.modal-body
 										%strong このツイートを削除しますか？
 									.modal-footer
-										= link_to 'OK', tweet_path(tweet.id), :method => :delete, class: "btn-primary"
+										= link_to 'OK', tweet, :method => :delete, class: "btn-primary"
 			- if tweet.favorited? current_user
 
 				.comment_box1
