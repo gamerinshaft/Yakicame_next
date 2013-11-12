@@ -2,7 +2,9 @@ class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
   def index
+    
     @tweets = Tweet.order("created_at DESC").page(params[:page]).per(18)
+    
     @tweet = Tweet.new
 
 

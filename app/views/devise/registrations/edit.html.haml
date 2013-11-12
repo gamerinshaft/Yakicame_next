@@ -2,57 +2,71 @@
   .title
     %h2
       Edit #{resource_name.to_s.humanize}
-  .sign_box.content.container    
-    .form.content.container
-      = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
-        = devise_error_messages!
+  #myCarousel.carousel.slide
+    %ol.carousel-indicators
+      %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
+      %li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
+      %li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
+    / Carousel items
+    .carousel-inner
+      .active.item
+        a
+      .item
+        .sign_box.content.container
+          .form.content.container
+            = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+              = devise_error_messages!
 
-        .username
-          .username_text
-            ユーザー名
-          %br/
-          = f.text_field :username, class: "username_box"
-        .account_name
-          .account_name_text
-            アカウントID
-          %br/
-          =f.text_field :account_name, class: "account_name_box"
-        .email
-          .email_text
-            メールアドレス
-          %br/
-          = f.email_field :email, :autofocus => true, class: "email_box"
-        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-          %div
-            Currently waiting confirmation for: #{resource.unconfirmed_email}
-        .password
-          = f.label :password, class: "password_text"
-          %i (leave blank if you don't want to change it)
-          %br/
-          = f.password_field :password, :autocomplete => "off", class: "password_box"
-        .password_con
-          = f.label :password_confirmation, class: "password_con_text"
-          %br/
-          = f.password_field :password_confirmation, class: "password_con_box"
+              .username
+                .username_text
+                  ユーザー名
+                %br/
+                = f.text_field :username, class: "username_box"
+              .account_name
+                .account_name_text
+                  アカウントID
+                %br/
+                =f.text_field :account_name, class: "account_name_box"
+              .email
+                .email_text
+                  メールアドレス
+                %br/
+                = f.email_field :email, :autofocus => true, class: "email_box"
+              - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+                %div
+                  Currently waiting confirmation for: #{resource.unconfirmed_email}
+              .password
+                = f.label :password, class: "password_text"
+                %i (leave blank if you don't want to change it)
+                %br/
+                = f.password_field :password, :autocomplete => "off", class: "password_box"
+              .password_con
+                = f.label :password_confirmation, class: "password_con_text"
+                %br/
+                = f.password_field :password_confirmation, class: "password_con_box"
 
-        .bio
-          = f.label :bio, class: "bio_text"
-          %br/
-          = f.text_area :bio, rows: 5, class: "bio_box"
-        .image
-          = f.label :image, class: "image_text"
-          %br/
-          = f.file_field :image, class: "image_box"
+              .bio
+                = f.label :bio, class: "bio_text"
+                %br/
+                = f.text_area :bio, rows: 5, class: "bio_box"
+              .image
+                = f.label :image, class: "image_text"
+                %br/
+                = f.file_field :image, class: "image_box"
 
-        .current_pass
-          = f.label :current_password, class: "current_pass_text"
-          %i (we need your current password to confirm your changes)
-          %br/
-          = f.password_field :current_password, class: "current_pass_box"
-        .submit
-          = f.submit "Update", class: "btn-primary"
-  .cancel
-    %h3 Cancel my account
-    .submit
-      #{button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "btn-primary"}
+              .current_pass
+                = f.label :current_password, class: "current_pass_text"
+                %i (we need your current password to confirm your changes)
+                %br/
+                = f.password_field :current_password, class: "current_pass_box"
+              .submit
+                = f.submit "Update", class: "btn-primary"
+      .item
+        .cancel
+          %h3 Cancel my account
+          .submit
+            #{button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "btn-primary"}
 
+      / Carousel nav
+      %a.carousel-control.left{"data-slide" => "prev", href: "#myCarousel"} ‹
+      %a.carousel-control.right{"data-slide" => "next", href: "#myCarousel"} ›
