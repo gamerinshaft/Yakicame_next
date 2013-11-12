@@ -2,7 +2,7 @@
   .title
     %h2
       Edit #{resource_name.to_s.humanize}
-  #myCarousel.carousel.slide
+  #myCarousel.carousel.slide.content.container
     %ol.carousel-indicators
       %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
       %li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
@@ -10,8 +10,6 @@
     / Carousel items
     .carousel-inner
       .active.item
-        a
-      .item
         .sign_box.content.container
           .form.content.container
             = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
@@ -27,6 +25,27 @@
                   アカウントID
                 %br/
                 =f.text_field :account_name, class: "account_name_box"
+              .bio
+                = f.label :bio, class: "bio_text"
+                %br/
+                = f.text_area :bio, rows: 3, class: "bio_box"
+              .image
+                = f.label :image, class: "image_text"
+                %br/
+                = f.file_field :image, class: "image_box"
+
+              .current_pass
+                = f.label :current_password, class: "current_pass_text"
+                %i (we need your current password to confirm your changes)
+                %br/
+                = f.password_field :current_password, class: "current_pass_box"
+              .submit
+                = f.submit "Update", class: "btn-primary"
+      .item
+        .sign_box.content.container
+          .form.content.container
+            = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+              = devise_error_messages!
               .email
                 .email_text
                   メールアドレス
@@ -44,16 +63,6 @@
                 = f.label :password_confirmation, class: "password_con_text"
                 %br/
                 = f.password_field :password_confirmation, class: "password_con_box"
-
-              .bio
-                = f.label :bio, class: "bio_text"
-                %br/
-                = f.text_area :bio, rows: 5, class: "bio_box"
-              .image
-                = f.label :image, class: "image_text"
-                %br/
-                = f.file_field :image, class: "image_box"
-
               .current_pass
                 = f.label :current_password, class: "current_pass_text"
                 %i (we need your current password to confirm your changes)
@@ -62,11 +71,19 @@
               .submit
                 = f.submit "Update", class: "btn-primary"
       .item
-        .cancel
-          %h3 Cancel my account
-          .submit
-            #{button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "btn-primary"}
+        .cancel.content.container
+          %h3
+            アカウントを削除
+          %a{"data-toggle" => "modal", :href => "#delete_modal1", :role => "button", :class => "btn-danger"} 削除
+          #delete_modal1.modal.hide.fade
+            .modal-header
+              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+              %h2 アカウントを削除
+            .modal-body
+              %h4 このアカウントを削除しますか？
+            .modal-footer
+              .submit.content.container
+                #{button_to "Cancel my account", registration_path(resource_name), :method => :delete, :class => "btn-primary"}
 
-      / Carousel nav
-      %a.carousel-control.left{"data-slide" => "prev", href: "#myCarousel"} ‹
-      %a.carousel-control.right{"data-slide" => "next", href: "#myCarousel"} ›
+    %a.carousel-control.left{"data-slide" => "prev", href: "#myCarousel"} ‹
+    %a.carousel-control.right{"data-slide" => "next", href: "#myCarousel"} ›
