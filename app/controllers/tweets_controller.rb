@@ -2,9 +2,8 @@ class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
   def index
-    
+
     @tweets = Tweet.order("created_at DESC").page(params[:page]).per(18)
-    
     @tweet = Tweet.new
 
 
@@ -52,7 +51,7 @@ class TweetsController < ApplicationController
         format.json { render json: @tweet, status: :created, location: @tweet }
       else
         format.html do
-          @tweets = Tweet.all
+          @tweets = Tweet.order("created_at DESC").page(params[:page]).per(18)
           render action: "index"
         end
         format.json { render json: @tweet.errors, status: :unprocessable_entity }
