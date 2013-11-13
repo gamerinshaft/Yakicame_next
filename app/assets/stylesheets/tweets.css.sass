@@ -3,124 +3,146 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #tweet_index
+	.tweet_page
+		#tweet
+			:box-shadow 0px 0px 30px 5px rgba(0,0,0,0.2)
+			:border 1px solid #ccc
+			:margin-bottom 150px
+			:border-radius 10px
+			:width 92%
+			h4
+				:text-align center
+				:font-size 25px
+			.tweet_box
 
+				.user_box
+					:clear both
 
+					.user_profile_box
 
-	#tweet
-		:box-shadow 0px 0px 30px 5px rgba(0,0,0,0.2)
-		:border 1px solid #ccc
-		:margin-bottom 150px
-		:border-radius 10px
-		:width 92%
-		h4
-
-			:text-align center
-			:font-size 25px
-		.tweet_box
-
-			.user_box
-				:clear both
-
-				.user_profile_box
-
-					:border-top-right-radius 15px
-					:border-top-left-radius 15px
-					:padding-top 10px
-					:padding-bottom 10px
-					:background-color #111
-					:height 60px
-					.cuser_image
-
-						:folat left
-						:border 1px solid red
-						:margin-left 50px
+						:border-top-right-radius 15px
+						:border-top-left-radius 15px
+						:padding-top 10px
+						:padding-bottom 10px
+						:background-color #111
 						:height 60px
-						:width 60px
-						:border-radius 5px
-					.user_image
-						:folat left
-						:border 1px solid orange
-						:margin-left 50px
-						:border-radius 5px
-						:margin-top 5px
-						:height 60px
-						:width 60px
+						.cuser_image
 
-					.names
+							:folat left
+							:border 1px solid red
+							:margin-left 50px
+							:height 60px
+							:width 60px
+							:border-radius 5px
+						.user_image
+							:folat left
+							:border 1px solid orange
+							:margin-left 50px
+							:border-radius 5px
+							:margin-top 5px
+							:height 60px
+							:width 60px
 
-						:float right
-						:width 75%
+						.names
 
-						:margin-top 20px
-						:margin-left 20px
-						:clear both
-						.cuser
-							strong
-								:text-align center
-								:width 50%
-								:color white
-								:float left
-								:font-size 25px
-								:margin-left 85px
-								:text-shadow 2px 2px 10px red
-						.other
-							strong
-								:text-align center
-								:width 50%
-								:color white
-								:float left
-								:font-size 25px
-								:margin-left 85px
-								:text-shadow 2px 2px 10px orange
-						.side
-							:float left
-							:margin-bottom -10px
-							:height 100%
-							.time
-								:clear both
-								:margin-top -14px
-								:color orange
-								:margin-left 74px
-							p
-								:margin-left -10px
-								:color #ccc
-								:font-size 8px
-								:clear both
+							:float right
+							:width 75%
 
-						.username
-							.user
-								:padding-top 10px
-								:clear both
-								:border 1px solid green
-								:font-size 50px
-
-								:color green
-
-						.fa_box
-
+							:margin-top 20px
+							:margin-left 20px
 							:clear both
-							:width 90%
-							:border-top 2px solid brown
-
-							.edit
+							.cuser
+								strong
+									:text-align center
+									:width 50%
+									:color white
+									:float left
+									:font-size 25px
+									:margin-left 85px
+									:text-shadow 2px 2px 10px red
+							.other
+								strong
+									:text-align center
+									:width 50%
+									:color white
+									:float left
+									:font-size 25px
+									:margin-left 85px
+									:text-shadow 2px 2px 10px orange
+							.side
 								:float left
-								:margin-left 105px
-								:margin-right 20px
-								a
-								#show_modal.modal.hide.fade
-									.modal-header
-										:background-color #111
-										h3
-											:color white
-										.close
-											:color white
-									.modal-body
-										.field
-											.text_area
-												:width 97%
-										.actions
-											:float right
-											:width 20%
+								:margin-bottom -10px
+								:height 100%
+								.time
+									:clear both
+									:margin-top -14px
+									:color orange
+									:margin-left 74px
+								p
+									:margin-left -10px
+									:color #ccc
+									:font-size 8px
+									:clear both
+
+							.username
+								.user
+									:padding-top 10px
+									:clear both
+									:border 1px solid green
+									:font-size 50px
+									:color green
+
+							.fa_box
+
+								:clear both
+								:width 90%
+								:border-top 2px solid brown
+
+								.edit
+									:float left
+									:margin-left 105px
+									:margin-right 20px
+									a
+									#show_modal.modal.hide.fade
+										.modal-header
+											:background-color #111
+											h3
+												:color white
+											.close
+												:color white
+										.modal-body
+											.field
+												.text_area
+													:width 97%
+											.actions
+												:float right
+												:width 20%
+
+												.btn-primary
+													:font-size 15px
+													:heigh 30px
+													:width 100%
+													:border-radius 3px
+													:border 1px solid black
+								.favorite1
+									:float left
+									:margin 0px 20px
+								.favorite2
+									:text-align center
+									:margin-right 16px
+
+								.destroy
+									:float left
+									:margin 0px 20px
+									.modal.hide.fade
+										.modal-header
+											:background-color #111
+											h3
+												:color white
+											.close
+												:color white
+										.modal-body
+										.modal-footer
 
 											.btn-primary
 												:font-size 15px
@@ -128,241 +150,216 @@
 												:width 100%
 												:border-radius 3px
 												:border 1px solid black
-							.favorite1
-								:float left
-								:margin 0px 20px
-							.favorite2
-								:text-align center
-								:margin-right 16px
+												:padding 5px 10px
 
-							.destroy
-								:float left
-								:margin 0px 20px
-								.modal.hide.fade
-									.modal-header
-										:background-color #111
-										h3
-											:color white
-										.close
-											:color white
-									.modal-body
-									.modal-footer
+					.comment_box1
+						:padding 25px 40px
+						:margin-bottom -13px
+						:background-color #fefdb7
 
-										.btn-primary
-											:font-size 15px
-											:heigh 30px
-											:width 100%
-											:border-radius 3px
-											:border 1px solid black
-											:padding 5px 10px
-
-				.comment_box1
-					:padding 25px 40px
-					:margin-bottom -13px
-					:background-color #fefdb7
-
-					.comment
-						:font-size 15px
-						:width 80%
-						:padding-bottom 10px
-						:margin-left 120px
-						:padding-right 10px
-						:word-wrap break-word
-
-					.image
-						:padding-left 120px
-						:text-align center
-
-					.fav_box
-						:margin-top 10px
-						:border-top 2px solid #da0000
-						:border-bottom 2px solid #da0000
-						:margin-left 120px
-						:padding-bottom 15px
-						:align center
-						:width 78%
-						:height 50px
-						:clear both
-
-						.fav_text
+						.comment
 							:font-size 15px
-							:margin-left 16px
+							:width 80%
+							:padding-bottom 10px
+							:margin-left 120px
+							:padding-right 10px
+							:word-wrap break-word
+
+						.image
+							:padding-left 120px
+							:text-align center
+
+						.fav_box
 							:margin-top 10px
-							:float left
+							:border-top 2px solid #da0000
+							:border-bottom 2px solid #da0000
+							:margin-left 120px
+							:padding-bottom 15px
+							:align center
+							:width 78%
+							:height 50px
+							:clear both
 
-						.fav_count
-							:margin-left 10px
-							:margin-top -10px
+							.fav_text
+								:font-size 15px
+								:margin-left 16px
+								:margin-top 10px
+								:float left
 
-						.fav_image
-							:margin-left 15px
+							.fav_count
+								:margin-left 10px
+								:margin-top -10px
 
-							:float left
-							:border-radius 3px
-							:margin-top 13px
-							:border 0px solid orange
-							:width 35px
-							:max-height 35px
+							.fav_image
+								:margin-left 15px
 
-						.fav_text2
-							:color red
-							.fav_count2
-								p
-									:color orange
-									:text-align center
-									:font-size 40px
-							strong
-								:margin-right 70px
-								:margin-top -20px
-								:float right
-								:font-size 20px
+								:float left
+								:border-radius 3px
+								:margin-top 13px
+								:border 0px solid orange
+								:width 35px
+								:max-height 35px
 
-				.comment_box2
-					:padding 25px 40px
-					:margin-bottom -13px
-					:background-color white
+							.fav_text2
+								:color red
+								.fav_count2
+									p
+										:color orange
+										:text-align center
+										:font-size 40px
+								strong
+									:margin-right 70px
+									:margin-top -20px
+									:float right
+									:font-size 20px
 
-					.comment
-						:font-size 15px
-						:width 80%
-						:padding-bottom 10px
-						:padding-left 120px
-						:padding-right 10px
-						:word-wrap break-word
+					.comment_box2
+						:padding 25px 40px
+						:margin-bottom -13px
+						:background-color white
 
-					.image
-						:padding-left 120px
-						:text-align center
-					.fav_box
-						:margin-top 10px
-						:border-top 2px solid #da0000
-						:border-bottom 2px solid #da0000
-						:margin-left 120px
-						:padding-bottom 15px
-						:align center
-						:width 78%
-						:height 50px
-						:clear both
-
-						.fav_text
+						.comment
 							:font-size 15px
-							:margin-left 16px
+							:width 80%
+							:padding-bottom 10px
+							:padding-left 120px
+							:padding-right 10px
+							:word-wrap break-word
+
+						.image
+							:padding-left 120px
+							:text-align center
+						.fav_box
 							:margin-top 10px
-							:float left
+							:border-top 2px solid #da0000
+							:border-bottom 2px solid #da0000
+							:margin-left 120px
+							:padding-bottom 15px
+							:align center
+							:width 78%
+							:height 50px
+							:clear both
 
-						.fav_count
-							:margin-left 10px
-							:margin-top -10px
+							.fav_text
+								:font-size 15px
+								:margin-left 16px
+								:margin-top 10px
+								:float left
 
-						.fav_image
-							:margin-left 15px
-							:float left
-							:border-radius 3px
-							:margin-top 13px
-							:border 0px solid orange
-							:width 35px
-							:height 35px
-						.fav_text2
-							:color red
-							.fav_count2
-								p
-									:color orange
-									:text-align center
-									:font-size 40px
-							strong
-								:margin-right 70px
-								:margin-top -20px
-								:float right
-								:font-size 20px
+							.fav_count
+								:margin-left 10px
+								:margin-top -10px
 
-	#form
-		:background-color #111
-		:box-shadow 0px 0px 30px 5px rgba(0,0,0,0.2)
-		:width 30%
-		:position fixed
-		:border 1px solid #ccc
-		:border-radius 15px
+							.fav_image
+								:margin-left 15px
+								:float left
+								:border-radius 3px
+								:margin-top 13px
+								:border 0px solid orange
+								:width 35px
+								:height 35px
+							.fav_text2
+								:color red
+								.fav_count2
+									p
+										:color orange
+										:text-align center
+										:font-size 40px
+								strong
+									:margin-right 70px
+									:margin-top -20px
+									:float right
+									:font-size 20px
 
-		.profile
-			:clear both
-			:padding-bottom 10px
-			:height 70px
-			:width 90%
-			:margin 10px
+		#form
+			:background-color #111
+			:box-shadow 0px 0px 30px 5px rgba(0,0,0,0.2)
+			:width 30%
+			:position fixed
+			:border 1px solid #ccc
+			:border-radius 15px
+			:right 20px
 
-			.cuser_image
-				:float left
+			.profile
+				:clear both
+				:padding-bottom 10px
+				:height 70px
+				:width 90%
 				:margin 10px
-				:border 1px solid red
-				:height 80px
-				:width 80px
-				:border-radius 15px
-			.cuser_box
-				:float left
-				.cusername
-					:color white
 
-					:text-shadow 2px 2px 40px red
+				.cuser_image
+					:float left
+					:margin 10px
+					:border 1px solid red
+					:height 80px
+					:width 80px
+					:border-radius 15px
+				.cuser_box
+					:float left
+					.cusername
+						:color white
+
+						:text-shadow 2px 2px 40px red
+						:text-align center
+						:font-size 38px
+						:margin-top 20px
+						:padding-bottom 5px
+
+
+
+
+					.user_at
+						:color #ccc
+						:margin 18px 40px
+						:font-size 17px
+
+
+			.list
+
+				:clear both
+				:border-top 1px solid #ccc
+				:border-bottom 1px solid #ccc
+				th
 					:text-align center
-					:font-size 38px
-					:margin-top 20px
-					:padding-bottom 5px
+					:border-left 1px solid #ccc
+					:background-color #eee
+				td
+					:text-align center
+					:background-color #eee
+					:border-left 1px solid #ccc
+			.form_box
+				:background-color white
+				:padding-top 10px
+				:height 100%
+				:border 0px solid red
+				:border-bottom-right-radius 15px
+				:border-bottom-left-radius 15px
+				:clear both
+				.field
+					:margin 0px 20px
+					.image
+
+
+						:margin 9px 15px
+					.text_area
+						:width 95%
+				.actions
+					:margin 0px 30px
 
 
 
+					.btn-primary
+						:height 40px
+						:border 1px solid black
+						:width 100%
+						:border-radius 10px
+						:font-size 20px
+		.page_box
+			:width 100%
+			:text-align center
+			:border-top 2px solid #ccc
+			:min-height 60px
 
-				.user_at
-					:color #ccc
-					:margin 18px 40px
-					:font-size 17px
-
-
-		.list
-
-			:clear both
-			:border-top 1px solid #ccc
-			:border-bottom 1px solid #ccc
-			th
-				:text-align center
-				:border-left 1px solid #ccc
-				:background-color #eee
-			td
-				:text-align center
-				:background-color #eee
-				:border-left 1px solid #ccc
-		.form_box
-			:background-color white
-			:padding-top 10px
-			:height 100%
-			:border 0px solid red
-			:border-bottom-right-radius 15px
-			:border-bottom-left-radius 15px
-			:clear both
-			.field
-				:margin 0px 20px
-				.image
-
-
-					:margin 9px 15px
-				.text_area
-					:width 95%
-			.actions
-				:margin 0px 30px
-
-
-
-				.btn-primary
-					:height 40px
-					:border 1px solid black
-					:width 100%
-					:border-radius 10px
-					:font-size 20px
-	.page_box
-		:width 100%
-		:text-align center
-		:border-top 2px solid #ccc
-		:min-height 60px
-
-		.page
-			:margin 4px
+			.page
+				:margin 4px
 

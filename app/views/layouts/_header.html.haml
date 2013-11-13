@@ -1,17 +1,18 @@
 #header
-	.navbar.navbar-inverse
+	.navbar.navbar-fixed-top.navbar-inverse
 		.navbar-inner
-			%a.brand{href: "http://localhost:3000"} YakiCame
-			%ul.nav
+			.content.container
+				%ul.pull-left
+					%li
+						%a.brand{href: "http://localhost:3000"} YakiCame
+				%ul.nav.pull-right
+					%li
+						- if user_signed_in?
+							= link_to 'edit', edit_user_registration_path
+					%li
+						-if user_signed_in?
+							= link_to 'members', users_path
+					%li
+						- if user_signed_in?
 
-
-				%li
-					- if user_signed_in?
-						= link_to 'edit', edit_user_registration_path
-				%li
-					-if user_signed_in?
-						= link_to 'members', users_path
-				%li
-					- if user_signed_in?
-
-						= link_to fa_icon("share"), destroy_user_session_path, method: :delete
+							= link_to fa_icon("share"), destroy_user_session_path, method: :delete

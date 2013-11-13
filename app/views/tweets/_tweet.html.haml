@@ -99,12 +99,8 @@
 									%strong= tweet.favorites.count
 							- tweet.favoriting_users.each do |fav|
 								= image_tag fav.image_url.to_s, class: "fav_image"
-
-
 			- else
-
 				.comment_box2
-
 					.comment
 						%strong= tweet.content
 						%br
