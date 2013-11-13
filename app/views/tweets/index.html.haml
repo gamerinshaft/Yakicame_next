@@ -12,7 +12,7 @@
 		.span2
 			#form
 				.profile
-					=image_tag current_user.image_url(:thumb).to_s , class: "cuser_image"
+					= image_tag current_user.image_url(:thumb).to_s , class: "cuser_image"
 					.cuser_box
 						.cusername
 							= "@" + current_user.account_name
